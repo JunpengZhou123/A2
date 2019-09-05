@@ -1,59 +1,120 @@
+
 import org.junit.*;
 
 import static org.junit.Assert.assertEquals;
-public class JunitTest {
-    @Test
-    public void test_findMax() {
-        Finder finder = new Finder();
-        Integer expectedResult = 6;
-        Integer actualResult = finder.findMax(new int[]{1,2,3,4,5,6});
-        // test
-        assertEquals(actualResult,expectedResult);
-    }
+
+
+
+// Test class for Finder java class.
+
+public class JUnitTest {
+
+
+
+    private Finder _finder = new Finder();
+
+
+
+    // Tests finding the max value when a valid array is given.
 
     @Test
-    public void test_findMax_emptyArray() {
-        Finder finder = new Finder();
-        Integer expectedResult = null;
-        Integer actualResult = finder.findMax(new int[]{});
-        // test
-        assertEquals(actualResult,expectedResult);
+
+    public void findMax_ValidArray() {
+
+        int[] testArray = {5, 0, 12, 8, 2, 15, 7};
+
+        Integer expected = 15;
+
+        Integer actual = _finder.findMax(testArray);
+
+
+
+        assertEquals(expected, actual);
+
     }
 
-    @Test
-    public void test_findMax_nullInput() {
-        Finder finder = new Finder();
-        Integer expectedResult = null;
-        Integer actualResult = finder.findMax(null);
-        // test
-        assertEquals(actualResult,expectedResult);
-    }
+
+
+    // Tests finding the min value when a valid array is given.
 
     @Test
-    public void test_findMin() {
-        Finder finder = new Finder();
-        Integer expectedResult = 1;
-        Integer actualResult = finder.findMin(new int[]{1,2,3,4,5,6});
-        // test
-        assertEquals(actualResult, expectedResult);
+
+    public void findMin_ValidArray() {
+
+        int[] testArray = {5, 0, 12, 8, 2, 15, 7};
+
+        Integer excepted = 0;
+
+        Integer actual = _finder.findMin(testArray);
+
+
+
+        assertEquals(excepted, actual);
+
     }
 
-    @Test
-    public void test_findMin_emptyArray() {
-        Finder finder = new Finder();
-        Integer expectedResult = null;
-        Integer actualResult = finder.findMin(new int[]{});
-        // test
-        assertEquals(actualResult,expectedResult);
-    }
+
+
+    // Tests when a null array is passed.
 
     @Test
-    public void test_findMin_nullInput() {
-        Finder finder = new Finder();
-        Integer expectedResult = null;
-        Integer actualResult = finder.findMin(null);
-        // test
-        assertEquals(actualResult,expectedResult);
+
+    public void findMax_NullArray() {
+
+        Integer actual = _finder.findMax(null);
+
+        assertEquals(null, actual);
+
+    }
+
+
+
+    // Tests when a null array is passed.
+
+    @Test
+
+    public void findMin_NullArray() {
+
+        Integer actual = _finder.findMin(null);
+
+        assertEquals(null, actual);
+
+    }
+
+
+
+    // Tests when an empty array is passed.
+
+    @Test
+
+    public void findMax_EmptyArray() {
+
+        int[] emptyArray = new int[3];
+
+        Integer expected = 0;
+
+        Integer actual = _finder.findMax(emptyArray);
+
+        assertEquals(expected, actual);
+
+    }
+
+
+
+    // Tests when an empty array is passed.
+
+    @Test
+
+    public void findMin_EmptyArray() {
+
+        int[] emptyArray = new int[3];
+
+        Integer expected = 0;
+
+        Integer actual = _finder.findMin(emptyArray);
+
+        assertEquals(expected, actual);
+
     }
 
 }
